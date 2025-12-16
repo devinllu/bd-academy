@@ -9,49 +9,54 @@ def get_user_input():
 
     return user_input
 
+# Fix the error in this code!
 def get_computer_input(i):
+    # key-value pair
     computer_choice = {0: 'r', 1: 'p', 2: 's'}
 
     choice = computer_choice[i]
 
     return choice
 
+# Fix the error in this code!
+# Given the user and computer input, this function
+# determines who win
 def won(user_input, computer_input):
 
     if user_input == 'r':
         if computer_input == 'p':
-            return 'Lost'
+            return 'lost'
         elif computer_input == 's':
-            return 'Won'
+            return 'won'
         else:
-            return 'Draw'
+            return 'draw'
 
     
     elif user_input == 'p':
         if computer_input == 'r':
-            return 'Won'
+            return 'won'
         elif computer_input == 's':
-            return 'Lost'
+            return 'lost'
         else:
-            return 'Draw'
+            return 'draw'
 
     else:
         if computer_input == 'r':
-            return 'Lost'
+            return 'lost'
         
         elif computer_input == 'p':
-            return 'Won'
+            return 'won'
         else:
-            return 'Draw'
+            return 'draw'
 
 def print_win_message():
-    print("Congratulations! You Beat the Computer!")
+    print("Congratulations! You Beat the Computer!\n\n")
 
 def print_lose_message():
-    print("Sorry, you did not beat the computer")
+    print("Sorry, you did not beat the computer\n\n")
 
 def main():
-    results = {'Won': 1, 'Lost': 0, 'Draw': 0}
+    results = {'won': 1, 'lost': 0, 'draw': 0}
     letters_to_words = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors', 'q': 'Quit'}
     finished = False
 
@@ -68,8 +73,9 @@ def main():
 
         # get results
         verdict = won(user_input, computer_input)
-        print(f"You chose {letters_to_words[user_input]}, and the Computer chose {letters_to_words[computer_input]}")
-        if results[verdict] > 0 :
+        print(f'You chose {letters_to_words[user_input]}, and the Computer chose {letters_to_words[computer_input]}')
+        # checking to see if the player won or not
+        if results[verdict] > 0:
             finished = True
             print_win_message()
         else:
